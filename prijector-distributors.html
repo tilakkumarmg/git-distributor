@@ -720,36 +720,37 @@ $('#contact').html('<a href="javascript:$zopim.livechat.window.show()" id="conta
       </div>
     
 
-      <div class="big_wrapper2">
+      <div class="big_wrapper2 container">
         <div class="wrapper2">
           <center>
             <h3> Prijector Distributors</h3>
-            <div class="dist-p" id="distributor-p">
-              <p>Click on a Prijector region, then select your area from the list to find the Prijector distributor.</p>
-              <p>If your area is not listed, contact support@prijector.com, and we will be able to help you.</p>
-            </div>
+            
             <div class="list-distbutor" id="list-distbutor">
-              <ul>
-                <li><a href="#" onclick="northamerica()"> North America </a></li>
-                <li><a href="#">South America </a></li>
-                <li><a href="#">Europe </a></li>
-                <li><a href="#">Asia </a></li>
-                <li><a href="#">Australia </a></li>
-              </ul>
-          </center>
-
-          <center>
-          <div id="shownorthamerica" style="display:none;padding-top: 50px;" class="showingarea">
+             
+          <div id="shownorthamerica" style="padding-top: 25px;" class="showingarea">
             <p>Select the country from the list below</p>
             <p>If your Country is not listed, contact support@prijector.com, and we will be able to help you.</p>
             <select>
-              <option value="select">Select</option>
-              <option value="volvo">Volvo</option>
-              <option value="saab">Saab</option>
-              <option value="opel">Opel</option>
-              <option value="audi">Audi</option>
+              <option>Select</option>
+              <option value="australia">Australia</option>
+              <option value="china">China</option>
+              <option value="india">India</option>
+              <option value="south-africa">South Africa</option>
             </select>
           </div>
+
+          <div class="australia boxed" id="austrlia-msg">
+            <p>Pankaj gupta is our distributor for australia</p>
+          </div> 
+           <div class="china boxed" id="china-msg" >
+            <p>Wanda is our distributor for China</p>
+          </div> 
+           <div class="india boxed" id="india-msg" >
+            <p>Redington is our distributor for australia</p>
+          </div> 
+           <div class="south-africa boxed" id="southafrica-msg">
+            <p>Owen patmore is our distributor for australia</p>
+          </div> 
           </center>
         </div>
 
@@ -825,12 +826,41 @@ $('#contact').html('<a href="javascript:$zopim.livechat.window.show()" id="conta
     
 </body>
 <script>
- function northamerica() {
-    $('#distributor-p').hide();
-    $('#list-distbutor').hide();
-    $('#shownorthamerica').show();
-    
-}
+/*script for showing distributor start*/
+$(document).ready(function(){
+    $("select").change(function(){
+        $(this).find("option:selected").each(function(){
+            if($(this).attr("value")=="australia"){
+                $("#austrlia-msg").show();
+                $("#china-msg").hide();
+                $("#india-msg").hide();
+                $("#southafrica-msg").hide();
+            }
+            else if($(this).attr("value")=="china"){
+                $("#austrlia-msg").hide();
+                $("#china-msg").show();
+                $("#india-msg").hide();
+                $("#southafrica-msg").hide();
+            }
+            else if($(this).attr("value")=="india"){
+                $("#austrlia-msg").hide();
+                $("#china-msg").hide();
+                $("#india-msg").show();
+                $("#southafrica-msg").hide();
+            }
+            else if($(this).attr("value")=="south-africa"){
+                $("#austrlia-msg").hide();
+                $("#china-msg").hide();
+                $("#india-msg").hide();
+                $("#southafrica-msg").show();
+            }
+            else{
+                $(".box").hide();
+            }
+        });
+    }).change();
+});
+ /*script finished*/
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
